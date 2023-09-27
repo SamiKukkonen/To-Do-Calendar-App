@@ -6,6 +6,7 @@ import AddTask from './components/AddTask';
 import CalenderApp from './components/CalenderApp'; // Import the CalenderApp component
 import './styling/styles.css'; // Import the CSS file
 import DateTimeDisplay from './components/DateTimeDisplay';
+import FilterSort from './components/FilterSort';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -26,11 +27,13 @@ function App() {
     setSelectedDate(date);
   };
 
+
   return (
 
     <div className="container">
       <h1>To-Do App</h1>
       <DateTimeDisplay/>
+
       {/* Render the CalenderApp component and pass the handleDateChange function */}
       <CalenderApp onDateChange={handleDateChange} />
 
@@ -41,6 +44,7 @@ function App() {
       ) : (
         'No tasks to show'
       )}
+      <FilterSort tasks={tasks} selectedDate={selectedDate} onDelete={deleteTask}/>
     </div>
   );
 }
