@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import Header from './Header';
-import Tasks from './Tasks';
-import AddTask from './AddTask';
-import CalenderApp from './CalenderApp'; // Import the CalenderApp component
-import './styles.css'; // Import the CSS file
-import DateTimeDisplay from './DateTimeDisplay';
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
+import CalenderApp from './components/CalenderApp'; // Import the CalenderApp component
+import './styling/styles.css'; // Import the CSS file
+import DateTimeDisplay from './components/DateTimeDisplay';
 
 function App() {
   const [tasks, setTasks] = useState([]);
