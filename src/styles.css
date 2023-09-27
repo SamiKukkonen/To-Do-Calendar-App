@@ -1,0 +1,92 @@
+/* Center the content vertically and horizontally */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; /* Light blue background color */
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .app {
+    text-align: center;
+  }
+  
+  .calendar-container {
+    margin: 20px;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .add-form {
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-control {
+    margin-bottom: 20px;
+  }
+  
+  
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  /* Task List Styling */
+.task-list {
+    background-color: #f5f5f5; /* Light gray background color */
+    padding: 10px;
+  }
+  /* Checkbox Styling */
+.task-checkbox {
+    cursor: pointer;
+    transform: scale(1.2); /* Make the checkbox larger */
+  }
+  
+
+  /* Delete Button Styling */
+.delete-btn {
+    background-color: #dc3545; /* Red background color */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Increase button size on hover */
+  .delete-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .date-time-display {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-top: 5px;
+  }
