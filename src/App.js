@@ -39,7 +39,8 @@ function App() {
       <AddTask onAdd={addTask} selectedDate={selectedDate} />
       </div>
       <div>
-      <FilterSort tasks={tasks} selectedDate={selectedDate} onDelete={deleteTask}/>
+      <FilterSort tasks={tasks} setTasks={setTasks} selectedDate={selectedDate} onDelete={deleteTask}/>
+
       </div>
     </div>
   );

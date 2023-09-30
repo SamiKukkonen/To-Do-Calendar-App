@@ -1,14 +1,20 @@
-import FilterSort from "./FilterSort";
-import React from 'react';
+import React, { useState } from 'react';
 
-const CompletedTasks = ({ completedTasks }) => {
+const CompletedTasks = ({ completedTasks, onRefresh }) => {
+  const handleRefresh = () => {
+    // Call the onRefresh function passed as a prop to clear completed tasks
+    onRefresh();
+  };
+
   return (
     <div>
       <h2>Completed Tasks</h2>
+      <button onClick={handleRefresh}>Clear</button>
       {completedTasks.map((task) => (
         <div key={task.id}>
-          <p>Name: {task.text}</p>
-          <p>Date: {task.day}</p>
+          <p>
+            Name: <b>{task.text}</b> Date: <b>{task.day}</b>
+          </p>
         </div>
       ))}
     </div>

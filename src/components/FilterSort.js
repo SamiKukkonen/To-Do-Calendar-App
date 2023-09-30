@@ -1,43 +1,40 @@
-import Tasks from "./Tasks";
-import { useState } from "react";
+import React, { useState } from 'react';
+import Tasks from './Tasks';
+import CompletedTasks from './CompletedTasks';
 
-function FilterSort({ tasks, onDelete }) {
-    // Calculate the current date
-    const [completedTasks, setCompletedTasks] = useState([]);
+function FilterSort({ tasks, onDelete, setTasks }) {
+  const [completedTasks, setCompletedTasks] = useState([]);
 
-    const handleTaskCompletion = (taskId, isCompleted) => {
-    if (isCompleted) {
-      const completedTask = tasks.find((task) => task.id === taskId);
-      setCompletedTasks([...completedTasks, completedTask]);
+  const handleRefreshCompletedTasks = () => {
+    // Clear the list of completed tasks
+    setCompletedTasks([]);
+    };
 
-    } else {
-      const updatedCompletedTasks = completedTasks.filter((task) => task.id !== taskId);
-      setCompletedTasks(updatedCompletedTasks);
-    }
+  const handleTaskCompletion = (taskId, isCompleted) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, isCompleted: isCompleted } : task
+    );
+
+    const completedTask = updatedTasks.find((task) => task.id === taskId);
+    setCompletedTasks((prevCompletedTasks) =>
+      isCompleted ? [...prevCompletedTasks, completedTask] : prevCompletedTasks.filter((task) => task.id !== taskId)
+    );
+
+    // Update the tasks state
+    setTasks(updatedTasks);
   };
+
+  const upcomingTasks = tasks.filter((task) => !task.isCompleted && isWithinNextNDays(task.day, 3));
+  const longTermTasks = tasks.filter((task) => !task.isCompleted && !isWithinNextNDays(task.day, 3));
+
+  function isWithinNextNDays(taskDate, days) {
     const currentDate = new Date();
-  
-    // Filter tasks for the next 3 days and tasks with more than 3 days to the deadline
-    const upcomingTasks = tasks.filter((task) => {
-      const taskDate = new Date(task.day);
-      const timeDifference = taskDate.getTime() - currentDate.getTime();
-      const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-  
-      return daysDifference >= 0 && daysDifference <= 3;
-    });
-  
-    const longTermTasks = tasks.filter((task) => {
-      const taskDate = new Date(task.day);
-      const timeDifference = taskDate.getTime() - currentDate.getTime();
-      const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-  
-      return daysDifference > 3;
-    });
-  
-    // Sort tasks by the "day" attribute
-    upcomingTasks.sort((a, b) => new Date(a.day) - new Date(b.day));
-    longTermTasks.sort((a, b) => new Date(a.day) - new Date(b.day));
-  
+    const deadlineDate = new Date(taskDate);
+    const timeDifference = deadlineDate.getTime() - currentDate.getTime();
+    const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+    return daysDifference >= 0 && daysDifference <= days;
+  }
+
     return (
     <div>
       <div className='upcoming-tasks-header'>
@@ -60,6 +57,9 @@ function FilterSort({ tasks, onDelete }) {
           'No long-term tasks'
         )}
       </div>
+      <div className='completed-tasks'>
+      <CompletedTasks completedTasks={completedTasks} onRefresh={handleRefreshCompletedTasks} /> {/* Pass completedTasks to CompletedTasks component */}
+    </div>
     </div>
     );
   }
