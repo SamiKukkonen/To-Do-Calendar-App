@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
-const Task = ({ task, onDelete }) => {
+const Task = ({ task, onDelete, onTaskCompletion }) => {
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
 
   const toggleCompletion = () => {
     setIsCompleted(!isCompleted);
+    onTaskCompletion(task.id, !isCompleted); // Notify parent component about task completion status
+    
   };
 
   return (
@@ -16,11 +18,12 @@ const Task = ({ task, onDelete }) => {
           checked={isCompleted}
           onChange={toggleCompletion}
         />
-        {task.text}{' '}
-        {task.day}{' '}
+        {' '}{task.text}{' '}
         <button className="delete-btn" onClick={() => onDelete(task.id)}>
           Delete
         </button>
+        <br></br>
+        {'('}{task.day}{')'}
       </h3>
     </div>
   );

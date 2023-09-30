@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import Header from './components/Header';
-import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import CalenderApp from './components/CalenderApp'; // Import the CalenderApp component
 import './styling/styles.css'; // Import the CSS file
@@ -29,22 +28,19 @@ function App() {
 
 
   return (
-
+    <div>
     <div className="container">
-      <h1>To-Do App</h1>
+      <Header/>
       <DateTimeDisplay/>
 
       {/* Render the CalenderApp component and pass the handleDateChange function */}
       <CalenderApp onDateChange={handleDateChange} />
 
       <AddTask onAdd={addTask} selectedDate={selectedDate} />
-      <Header />
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} />
-      ) : (
-        'No tasks to show'
-      )}
+      </div>
+      <div>
       <FilterSort tasks={tasks} selectedDate={selectedDate} onDelete={deleteTask}/>
+      </div>
     </div>
   );
 }
