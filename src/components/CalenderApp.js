@@ -12,11 +12,11 @@ function CalenderApp({ onDateChange }) {
   };
 
   return (
-    <div className='app'>
-      <div className='calendar-container'>
+    <div>
+      <div className='calendar'>
         <Calendar onChange={handleDateChange} value={selectedDate} minDate={new Date()} minDetail='year' />
       </div>
-      <h2 className='text-center'>
+      <h2>
         <span>Selected Date:</span>{' '}
         {selectedDate.toDateString()}
       </h2>
