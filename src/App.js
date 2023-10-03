@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from './components/Header';
 import AddTask from './components/AddTask';
@@ -38,10 +37,11 @@ function App() {
 
       <AddTask onAdd={addTask} selectedDate={selectedDate} />
       </div>
+
       <div>
       <FilterSort tasks={tasks} setTasks={setTasks} selectedDate={selectedDate} onDelete={deleteTask}/>
-
       </div>
+      
     </div>
   );
 }

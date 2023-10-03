@@ -28,7 +28,7 @@ function DateTimeDisplay() {
   return (
     <div
       className="date-time-display">
-      <p>Current Date and Time:</p>
+      <h3>Current Date and Time</h3>
       <p>{formattedDateTime}</p>
     </div>
   );

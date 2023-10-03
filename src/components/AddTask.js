@@ -22,7 +22,7 @@ const AddTask = ({ onAdd, selectedDate }) => {
   return (
     <form className="add-form" onSubmit={onSubmit}>
       <div className="form-control">
-        <label>Task: </label>
+        <label><b>Task: </b></label>
         <input
           type="text"
           placeholder="Add a task"
@@ -31,7 +31,7 @@ const AddTask = ({ onAdd, selectedDate }) => {
         />
       </div>
       <div className="form-control">
-        <label>Date: </label>
+        <label><b> Date:</b> </label>
         <span className="day-time-display">{selectedDate.toDateString()}</span>
       </div>
       <input type="submit" value="Save Task" className="btn btn-block" />

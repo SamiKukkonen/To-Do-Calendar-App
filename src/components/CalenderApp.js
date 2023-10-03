@@ -13,14 +13,13 @@ function CalenderApp({ onDateChange }) {
 
   return (
     <div className='app'>
-      <h1 className='text-center'>React Calendar</h1>
       <div className='calendar-container'>
         <Calendar onChange={handleDateChange} value={selectedDate} minDate={new Date()} minDetail='year' />
       </div>
-      <p className='text-center'>
-        <span className='bold'>Selected Date:</span>{' '}
+      <h2 className='text-center'>
+        <span>Selected Date:</span>{' '}
         {selectedDate.toDateString()}
-      </p>
+      </h2>
     </div>
   );
 }

@@ -5,8 +5,7 @@ const Tasks = ({ tasks, onDelete, onTaskCompletion }) => {
 
   return (
     <>
-    <div
-    className="task-checkbox">
+    <div>
       {tasks.map((task) => (
         <Task key={task.id} task={task} onDelete={onDelete} onTaskCompletion={onTaskCompletion} />
       ))}

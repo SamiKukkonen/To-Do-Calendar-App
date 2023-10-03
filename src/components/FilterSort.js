@@ -41,11 +41,13 @@ function FilterSort({ tasks, onDelete, setTasks }) {
         <h2>Upcoming Tasks (Next 3 Days)</h2>
         </div>
         <div className='upcoming-tasks'>
+          
         {upcomingTasks.length > 0 ? (
           <Tasks tasks={upcomingTasks} onDelete={onDelete} onTaskCompletion={handleTaskCompletion}/>
         ) : (
           'No upcoming tasks'
         )}
+
         </div>
         <div className="tasks-long-header">
         <h2>Long-Term Tasks (More than 3 Days)</h2>
