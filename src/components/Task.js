@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {AiOutlineDelete} from 'react-icons/ai';
+import {BsCheck2Square} from 'react-icons/bs';
 
 const Task = ({ task, onDelete, onTaskCompletion }) => {
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
@@ -11,20 +13,21 @@ const Task = ({ task, onDelete, onTaskCompletion }) => {
 
   return (
     <div className={`task ${isCompleted ? 'completed' : ''}`}>
-      <h3>
-        <input
-          type="checkbox"
-          className="task-checkbox"
-          checked={isCompleted}
-          onChange={toggleCompletion}
+      <h3>{task.text}</h3>
+      <p>{task.day}</p>
+
+      <BsCheck2Square
+          title="Completed?"
+          className=" check-icon"
+          onClick={() => toggleCompletion (task.id)}
         />
-        {' '}{task.text}{' '}
-        <button className="delete-btn" onClick={() => onDelete(task.id)}>
-          Delete
-        </button>
-        <br></br>
-        {'('}{task.day}{')'}
-      </h3>
+      
+
+      <AiOutlineDelete
+          title="Delete?"
+          className="icon"
+          onClick={() => onDelete (task.id)}
+        />
     </div>
   );
 };
