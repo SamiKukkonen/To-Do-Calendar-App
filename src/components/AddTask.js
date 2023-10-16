@@ -11,6 +11,12 @@ const AddTask = ({ onAdd, selectedDate }) => {
       return;
     }
 
+     // Check if the text exceeds the maximum allowed length
+    if (text.length > 25) { // Set your desired character limit here (100 characters in this example)
+      alert('Task is too long. Please limit your input to 25 characters.');
+      return;
+    }
+
     const id = Math.floor(Math.random() * 10000);
 
     // Pass selectedDate separately, not as part of an object
@@ -34,7 +40,7 @@ const AddTask = ({ onAdd, selectedDate }) => {
         <label><b> Date:</b> </label>
         <span className="day-time-display">{selectedDate.toDateString()}</span>
       </div>
-      <input type="submit" value="Save Task" className="btn btn-block" />
+      <input type="submit" value="Save" className="btn btn-block" />
     </form>
   );
 };

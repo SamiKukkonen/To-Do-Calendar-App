@@ -4,9 +4,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 84vh;
-    margin: 0;
+    margin-top: 5%;
     background-color: #022b4e; /* Dark blue background color */
-  }
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
   
   .container {
     text-align: center;
@@ -75,11 +76,13 @@ body {
   border-style:solid;
   border-width: 10px;
   border-color: rgb(23, 143, 207);
-  min-height: 48vh;
+  min-height: 8vh;
   max-width: 25%;
   min-width: 25%;
-
+  overflow: hidden;
   }
+
+
   .upcoming-tasks h3 {
     position: absolute;
     font-size: 25px;
@@ -87,6 +90,7 @@ body {
     font-weight: bold;
     margin: 0px;
     max-width: 80%;
+    
   }
   .upcoming-tasks p {
     position: relative;
@@ -103,9 +107,12 @@ body {
     border-style:solid;
     border-width: 10px;
     border-color: rgb(23, 143, 207);
-    min-height: 48vh;
+    min-height: 8vh;
     max-width: 25%;
     min-width: 25%;
+    margin-bottom: 10%;
+    overflow: hidden;
+
   }
 
   .long-term-tasks h3 {
@@ -136,18 +143,20 @@ body {
   }
 
   .completed-tasks{
-    position: absolute;
-    top: 75%;
-    left: 40%;
+    position:relative;
+    top: 80%;
+    left: 0%;
     text-align: center;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
-    width: 18%;
+    min-width: 87%;
     border-radius: 10px;
     border-style:solid;
     border-width: 10px;
     border-color: rgb(23, 143, 207);
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
 
   .icon{
@@ -167,7 +176,7 @@ body {
     margin-right: 2%;
     font-size: 30px;
     cursor: pointer;
-    margin-left: 85%;
+    margin-left: 80%;
     margin-bottom: 0px;
   }
   

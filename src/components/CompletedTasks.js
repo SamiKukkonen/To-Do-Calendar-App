@@ -13,8 +13,9 @@ const CompletedTasks = ({ completedTasks, onRefresh }) => {
       {completedTasks.map((task) => (
         <div key={task.id}>
           <p>
-            Name: <b>{task.text}</b> Date: <b>{task.day}</b>
+            Name: <b>{task.text}</b> 
           </p>
+          <p>Date: <b>{task.day}</b></p>
         </div>
       ))}
     </div>
